@@ -66,13 +66,7 @@ func maxChunks(data []int) int {
 				end = len(data)
 			}
 
-			chunkMax := maximum(data[start:end])
-			for _, v := range data[start+1 : end] {
-				if v > chunkMax {
-					chunkMax = v
-				}
-			}
-			maxes[v] = chunkMax
+			maxes[v] = maximum(data[start:end])
 		}(i)
 	}
 	wg.Wait()
